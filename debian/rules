@@ -18,7 +18,8 @@ SBIN_PATH=/usr/sbin
 	dh  $@
 
 override_dh_auto_build: 
-	if [ ! -f play-${VERSION}.zip ]; then curl -o play-${VERSION}.zip http://download.playframework.org/releases/play-${VERSION}.zip;fi
+	#if [ ! -f play-${VERSION}.zip ]; then curl -o play-${VERSION}.zip http://download.playframework.org/releases/play-${VERSION}.zip;fi
+	if [ ! -f play-${VERSION}.zip ]; then cp ../play-${VERSION}.zip ./;fi
 	unzip play-${VERSION}.zip -d play
 
 
@@ -29,14 +30,14 @@ override_dh_auto_clean:
 
 override_dh_auto_install: 
 	install -d $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(SBIN_PATH) $(DEB_PATH)$(INSTALL_PATH)/modules $(DEB_PATH)$(ETC_PATH) $(DEB_PATH)$(DOC_PATH)
-	rsync -r --exclude play/play-${VERSION}/framework/classes play/play-${VERSION}/framework play/play-${VERSION}/play play/play-${VERSION}/resources play/play-${VERSION}/support play/play-${VERSION}/samples-and-tests $(DEB_PATH)$(INSTALL_PATH)
-	for m in crud docviewer grizzly secure testrunner; \
-	 do rsync -r --exclude play/play-${VERSION}/tmp play/play-${VERSION}/modules/$$m $(DEB_PATH)$(INSTALL_PATH)/modules ;\
-	done
+	rsync -r --exclude play/play-${VERSION}/framework/classes play/play-${VERSION}/framework $(DEB_PATH)$(INSTALL_PATH)
+	#for m in crud docviewer grizzly secure testrunner; \
+	 #do rsync -r --exclude play/play-${VERSION}/tmp play/play-${VERSION}/modules/$$m $(DEB_PATH)$(INSTALL_PATH)/modules ;\
+	#done
 	cp -r play/play-${VERSION}/documentation $(DEB_PATH)$(DOC_PATH)
-	ln -s $(DOC_PATH)/documentation $(DEB_PATH)$(INSTALL_PATH)
+	#ln -s $(DOC_PATH)/documentation $(DEB_PATH)$(INSTALL_PATH)
 	cp -r debian/id $(DEB_PATH)$(ETC_PATH)
-	ln -s $(ETC_PATH) $(DEB_PATH)$(INSTALL_PATH)/etc
+	#ln -s $(ETC_PATH) $(DEB_PATH)$(INSTALL_PATH)/etc
 	cp debian/update-play-alternatives $(DEB_PATH)$(SBIN_PATH)/
 	sed "s/_VERSION_/$(VERSION)/g" debian/play.prerm.template > debian/play.prerm
 	sed "s/_VERSION_/$(VERSION)/g" debian/play.postinst.template > debian/play.postinst
