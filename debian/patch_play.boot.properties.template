@@ -1,0 +1,10 @@
+14a15
+>   play-local: file:///usr/share/play/_VERSION_/repository/local, [organization]/[module]/[revision]/[type]s/[artifact](-[classifier]).[ext]
+20c21
+<   directory: ${play.home}/sbt/boot
+---
+>   directory: ${user.home}/.sbt/boot
+23c24
+<   ivy-home: ${sbt.ivy.home-${user.home}/.ivy2/}
+---
+>   ivy-home: ${user.home}/.ivy2/

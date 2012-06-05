@@ -1,2 +1,10 @@
 *.log
 *.zip
+debian/files
+debian/play.postinst
+debian/play.prerm
+debian/play.substvars
+debian/play/
+debian/patch_sbt.boot.properties
+debian/patch_play.boot.properties
+play/

@@ -3,7 +3,6 @@ Section: java
 Priority: extra
 Maintainer: Nicolas Leroux <nicolas@lunatech.com>
 Build-Depends: debhelper (>= 8.0.0), unzip, curl
-Standards-Version: 1.2.4
 Homepage: http://www.playframework.org
 
 Package: play
