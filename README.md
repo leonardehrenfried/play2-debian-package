@@ -1,11 +1,7 @@
 # Play debian package
 
 These scripts allow you to build a debian packages from the official play distribution.
-
-## Download the latest debian package
-
-If you don't want to build the package yourself, you can download the latest [play 1.2.4 debian package](https://github.com/downloads/lunatech-labs/play-debian-package/play_1.2.4-1_all.deb). 
-You can also [browse from previous versions](https://github.com/lunatech-labs/play-debian-package/downloads).
+Please note that the package name is play2 to avoid updating play 1.x.y installations.
 
 ## Pre-requisite
 
@@ -21,8 +17,7 @@ You need a debian or ubuntu system. On the system, the following packages need t
 
 Building a package is easy. Simply:
 
-1. edit the file debian/playversion and indicate the right version number (i.e. 1.2.4). 
-1. edit the file debian/control and fill in the right version number for the Standard-Version field.
+1. edit the file debian/playversion and indicate the right version number (i.e. 2.0.2). 
 1. run the command `dch -i' and log the changes to your package.
 
 ## Building the debian package
