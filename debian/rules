@@ -18,7 +18,7 @@ SBIN_PATH=/usr/sbin
 	dh  $@
 
 override_dh_auto_build: 
-	if [ ! -f play-${VERSION}.zip ]; then curl -o play-${VERSION}.zip http://download.playframework.org/releases/play-${VERSION}.zip;fi
+	if [ ! -f play-${VERSION}.zip ]; then curl -o play-${VERSION}.zip http://downloads.typesafe.com/play/${VERSION}/play-${VERSION}.zip ;fi
 	if [ ! -f play-${VERSION}.zip ]; then cp ../play-${VERSION}.zip ./;fi
 	unzip play-${VERSION}.zip -d play
 
