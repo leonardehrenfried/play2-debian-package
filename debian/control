@@ -7,5 +7,5 @@ Homepage: http://www.playframework.org
 
 Package: play2
 Architecture: all
-Depends: ${misc:Depends}, python (>= 2.5), java-runtime
+Depends: ${misc:Depends}, java-runtime
 Description: The Play framework makes it easier to build Web applications with Java and Scala

@@ -1,10 +1,25 @@
-15a16
->   play-local: file:///usr/share/play/_VERSION_/repository/local, [organization]/[module]/[revision]/[type]s/[artifact](-[classifier]).[ext]
-21c22
-<   directory: ${play.home}/sbt/boot
----
->   directory: ${user.home}/.sbt/boot
-24c25
-<   ivy-home: ${sbt.ivy.home-${user.home}/.ivy2/}
----
->   ivy-home: ${user.home}/.ivy2/
+--- sbt.boot.properties	2014-03-14 10:34:17.316544025 +0100
++++ patch	2014-03-14 10:33:45.715936506 +0100
+@@ -8,18 +8,19 @@
+   class: ${sbt.main.class-sbt.xMain}
+   components: xsbti,extra
+   cross-versioned: ${sbt.cross.versioned-false}
+-  
++
+ [repositories]
+   local
+   maven-local
+   typesafe-ivy-releases: http://repo.typesafe.com/typesafe/ivy-releases/, [organization]/[module]/[revision]/[type]s/[artifact](-[classifier]).[ext], bootOnly
++  play-local: file:///usr/share/play/_VERSION_/repository/local, [organization]/[module]/[revision]/[type]s/[artifact](-[classifier]).[ext]
+   maven-central
+ 
+ [boot]
+-  directory: ${play.home}/sbt/boot
++  directory: ${.home}/sbt/boot
+ 
+ [ivy]
+-  ivy-home: ${sbt.ivy.home-${play.home}/../repository}
++  ivy-home: ivy-home: ${user.home}/.ivy2/
+   checksums: ${sbt.checksums-sha1,md5}
+   override-build-repos: ${sbt.override.build.repos-false}
+   repository-config: ${sbt.repository.config-${sbt.global.base-${user.home}/.sbt}/repositories}

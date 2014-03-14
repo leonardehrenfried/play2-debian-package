@@ -17,25 +17,23 @@ SBIN_PATH=/usr/sbin
 %:
 	dh  $@
 
-override_dh_auto_build: 
+override_dh_auto_build:
 	if [ ! -f play-${VERSION}.zip ]; then curl -o play-${VERSION}.zip http://downloads.typesafe.com/play/${VERSION}/play-${VERSION}.zip ;fi
 	if [ ! -f play-${VERSION}.zip ]; then cp ../play-${VERSION}.zip ./;fi
 	unzip play-${VERSION}.zip -d play
 
 
-override_dh_auto_clean: 
+override_dh_auto_clean:
 	if [ -f play-${VERSION}.zip ]; then rm play-${VERSION}.zip; fi
-	if [ -d play ]; then rm -rf play; fi 
-	if [ -d ${DEB_PATH} ]; then rm -rf ${DEB_PATH}; fi		
+	if [ -d play ]; then rm -rf play; fi
+	if [ -d ${DEB_PATH} ]; then rm -rf ${DEB_PATH}; fi
 
-override_dh_auto_install: 
+override_dh_auto_install:
 	install -d $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(SBIN_PATH) $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(ETC_PATH) $(DEB_PATH)$(DOC_PATH)
 	cp -r play/play-${VERSION}/play $(DEB_PATH)$(INSTALL_PATH)
 	cp -r play/play-${VERSION}/framework $(DEB_PATH)$(INSTALL_PATH)
 	rm -rf  $(DEB_PATH)$(INSTALL_PATH)/framework/build.bat
 	cp -r play/play-${VERSION}/repository $(DEB_PATH)$(INSTALL_PATH)
-	cp -r play/play-${VERSION}/documentation $(DEB_PATH)$(DOC_PATH)
-	ln -s $(DOC_PATH)/documentation $(DEB_PATH)$(INSTALL_PATH)
 	cp -r debian/id $(DEB_PATH)$(ETC_PATH)
 	ln -s $(ETC_PATH) $(DEB_PATH)$(INSTALL_PATH)/etc
 	cp debian/update-play-alternatives $(DEB_PATH)$(SBIN_PATH)/
