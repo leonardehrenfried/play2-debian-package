@@ -3,8 +3,8 @@
 debian/files
 debian/play.postinst
 debian/play.prerm
-debian/play.substvars
-debian/play/
+debian/play2.substvars
+debian/play2/
 debian/patch_sbt.boot.properties
 debian/patch_play.boot.properties
 play/

@@ -9,10 +9,11 @@ export DH_VERBOSE=1
 
 VERSION=`cat debian/playversion`
 
-DEB_PATH=debian/play
+DEB_PATH=debian/play2
 INSTALL_PATH=/usr/share/play/$(VERSION)
 ETC_PATH=/etc/play/$(VERSION)
 DOC_PATH=/usr/share/doc/play/$(VERSION)
+BIN_PATH=/usr/bin
 SBIN_PATH=/usr/sbin
 %:
 	dh  $@
@@ -31,6 +32,7 @@ override_dh_auto_clean:
 override_dh_auto_install:
 	install -d $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(SBIN_PATH) $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(ETC_PATH) $(DEB_PATH)$(DOC_PATH)
 	cp -r play/play-${VERSION}/play $(DEB_PATH)$(INSTALL_PATH)
+	ln -s $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(BIN_PATH)
 	cp -r play/play-${VERSION}/framework $(DEB_PATH)$(INSTALL_PATH)
 	rm -rf  $(DEB_PATH)$(INSTALL_PATH)/framework/build.bat
 	cp -r play/play-${VERSION}/repository $(DEB_PATH)$(INSTALL_PATH)
