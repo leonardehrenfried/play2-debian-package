@@ -30,9 +30,8 @@ override_dh_auto_clean:
 	if [ -d ${DEB_PATH} ]; then rm -rf ${DEB_PATH}; fi
 
 override_dh_auto_install:
-	install -d $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(SBIN_PATH) $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(ETC_PATH) $(DEB_PATH)$(DOC_PATH)
+	install -d $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(SBIN_PATH) $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(ETC_PATH) $(DEB_PATH)$(DOC_PATH) $(DEB_PATH)$(BIN_PATH)
 	cp -r play/play-${VERSION}/play $(DEB_PATH)$(INSTALL_PATH)
-	ln -s $(DEB_PATH)$(INSTALL_PATH) $(DEB_PATH)$(BIN_PATH)
 	cp -r play/play-${VERSION}/framework $(DEB_PATH)$(INSTALL_PATH)
 	rm -rf  $(DEB_PATH)$(INSTALL_PATH)/framework/build.bat
 	cp -r play/play-${VERSION}/repository $(DEB_PATH)$(INSTALL_PATH)
