@@ -1,8 +1,8 @@
 *.log
 *.zip
 debian/files
-debian/play.postinst
-debian/play.prerm
+debian/play22.postinst
+debian/play2.prerm
 debian/play2.substvars
 debian/play2/
 debian/patch_sbt.boot.properties

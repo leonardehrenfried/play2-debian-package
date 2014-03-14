@@ -38,8 +38,8 @@ override_dh_auto_install:
 	cp -r debian/id $(DEB_PATH)$(ETC_PATH)
 	ln -s $(ETC_PATH) $(DEB_PATH)$(INSTALL_PATH)/etc
 	cp debian/update-play-alternatives $(DEB_PATH)$(SBIN_PATH)/
-	sed "s/_VERSION_/$(VERSION)/g" debian/play.prerm.template > debian/play.prerm
-	sed "s/_VERSION_/$(VERSION)/g" debian/play.postinst.template > debian/play.postinst
+	sed "s/_VERSION_/$(VERSION)/g" debian/play2.prerm.template > debian/play2.prerm
+	sed "s/_VERSION_/$(VERSION)/g" debian/play2.postinst.template > debian/play2.postinst
 	sed "s/_VERSION_/$(VERSION)/g" debian/patch_sbt.boot.properties.template > debian/patch_sbt.boot.properties
 	sed "s/_VERSION_/$(VERSION)/g" debian/patch_play.boot.properties.template > debian/patch_play.boot.properties
 	patch $(DEB_PATH)$(INSTALL_PATH)/framework/sbt/sbt.boot.properties debian/patch_sbt.boot.properties
