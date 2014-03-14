@@ -1,8 +1,14 @@
+play2 (2.2.2-2) precise; urgency=low
+
+  * Add play2 command
+
+ -- Leonard Ehrenfried <leonard.ehrenfried@gmail.com>  Fri, 14 Mar 2014 11:27:30 +0100
+
 play2 (2.2.2-1) unstable; urgency=low
 
   * Using Play! Framework release 2.2.2
 
- -- Leonard Ehrenfried <leonard.ehrenfried@gmail.com>  Tue, 14 Mar 2014 06:38:40 +0000
+ -- Leonard Ehrenfried <leonard.ehrenfried@gmail.com>  Fri, 14 Mar 2014 10:38:40 +0100
 
 play2 (2.0.2-1) unstable; urgency=low
 
